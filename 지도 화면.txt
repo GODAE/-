@@ -1,0 +1,129 @@
+package com.example.cho.railro;
+
+import android.os.Bundle;
+import android.view.View;
+import android.content.*;
+
+
+public class AnotherActivity extends AnotherActivity2{  //지도 화면
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.another_activity);
+    }
+
+    public void seoulButton(View v) {
+        Intent intent = new Intent(getApplicationContext(), seoul01.class);
+        startActivity(intent);
+    }
+
+    public void sintanlibutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), sintanli01.class);
+        startActivity(intent);
+    }
+
+    public void suwonbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), suwon01.class);
+        startActivity(intent);
+    }
+
+    public void jecheonbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), jecheon_danyang.class);
+        startActivity(intent);
+    }
+
+    public void gapyungbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), gapyung01.class);
+        startActivity(intent);
+    }
+
+    public void chungjubutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), chungju01.class);
+        startActivity(intent);
+    }
+
+    public void jungsunbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), jungsun01.class);
+        startActivity(intent);
+    }
+    public void andongbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), andong01.class);
+        startActivity(intent);
+    }
+    public void bosungbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), bosung01.class);
+        startActivity(intent);
+    }
+    public void busanbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), busan01.class);
+        startActivity(intent);
+    }
+    public void daecheonbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), daecheon01.class);
+        startActivity(intent);
+    }
+    public void donghaebutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), donghae01.class);
+        startActivity(intent);
+    }
+    public void gangleungbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), gangleung_jungdongjin.class);
+        startActivity(intent);
+    }
+    public void goonsanbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), goonsan_iksan.class);
+        startActivity(intent);
+    }
+    public void gwangjubutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), gwangju_hwasoon.class);
+        startActivity(intent);
+    }
+    public void gyungjubutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), gyungju01.class);
+        startActivity(intent);
+    }
+    public void jeonjubutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), jeonju01.class);
+        startActivity(intent);
+    }
+    public void jungeupbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), jungeup01.class);
+        startActivity(intent);
+    }
+    public void masanbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), masan01.class);
+        startActivity(intent);
+    }
+    public void milyangbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), milyang01.class);
+        startActivity(intent);
+    }
+    public void mokpobutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), mokpo01.class);
+        startActivity(intent);
+    }
+    public void namwonbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), namwon01.class);
+        startActivity(intent);
+    }
+    public void nonsanbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), nonsan01.class);
+        startActivity(intent);
+    }
+    public void pohangbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), pohang01.class);
+        startActivity(intent);
+    }
+    public void sooncheonbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), sooncheon01.class);
+        startActivity(intent);
+    }
+    public void taebackbutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), taeback01.class);
+        startActivity(intent);
+    }
+    public void yeosubutton(View v) {
+        Intent intent = new Intent(getApplicationContext(), yeosu01.class);
+        startActivity(intent);
+    }
+}

@@ -1,0 +1,77 @@
+package com.example.cho.railro;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import android.view.View;
+import android.widget.EditText;
+
+public class sc01_meal_01 extends AppCompatActivity {   //SharedPreference를 이용한 스케쥴러 화면
+    EditText edit1, edit2, edit3, edit4, edit5;
+
+    public void onCreate(Bundle savedInstanceState) {   //5일권 화면 생성
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.sc01_meal_01);
+
+        SharedPreferences pref1 = getSharedPreferences("pref1", Activity.MODE_PRIVATE);
+        SharedPreferences pref2 = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
+        SharedPreferences pref3 = getSharedPreferences("pref3", Activity.MODE_PRIVATE);
+        SharedPreferences pref4 = getSharedPreferences("pref4", Activity.MODE_PRIVATE);
+        SharedPreferences pref5 = getSharedPreferences("pref5", Activity.MODE_PRIVATE);
+
+        edit1 = (EditText)findViewById(R.id.editText2_1);
+        edit2 = (EditText)findViewById(R.id.editText2);
+        edit3 = (EditText)findViewById(R.id.editText3);
+        edit4 = (EditText)findViewById(R.id.editText4);
+        edit5 = (EditText)findViewById(R.id.editText5);
+
+        String text1 = pref1.getString("editText", "");
+        String text2 = pref2.getString("editText", "");
+        String text3 = pref3.getString("editText", "");
+        String text4 = pref4.getString("editText", "");
+        String text5 = pref5.getString("editText", "");
+
+        edit1.setText(text1);
+        edit2.setText(text2);
+        edit3.setText(text3);
+        edit4.setText(text4);
+        edit5.setText(text5);
+    }
+
+    public void onStop(){   //editText에 입력후 앱을 껐다 켜도 정보가 남아있도록 한다
+        super.onStop();
+        SharedPreferences pref1 = getSharedPreferences("pref1", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = pref1.edit();
+        SharedPreferences pref2 = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = pref2.edit();
+        SharedPreferences pref3 = getSharedPreferences("pref3", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor3 = pref3.edit();
+        SharedPreferences pref4 = getSharedPreferences("pref4", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor4 = pref4.edit();
+        SharedPreferences pref5 = getSharedPreferences("pref5", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor5 = pref5.edit();
+
+        EditText edit1 = (EditText)findViewById(R.id.editText2_1);
+        editor1.putString("editText", edit1.getText().toString());
+        EditText edit2 = (EditText)findViewById(R.id.editText2);
+        editor2.putString("editText", edit2.getText().toString());
+        EditText edit3 = (EditText)findViewById(R.id.editText3);
+        editor3.putString("editText", edit3.getText().toString());
+        EditText edit4 = (EditText)findViewById(R.id.editText4);
+        editor4.putString("editText", edit4.getText().toString());
+        EditText edit5 = (EditText)findViewById(R.id.editText5);
+        editor5.putString("editText", edit5.getText().toString());
+
+        editor1.commit();
+        editor2.commit();
+        editor3.commit();
+        editor4.commit();
+        editor5.commit();
+    }
+    public void searchbutton(View v) {  //검색 화면으로 돌아가기
+        Intent intent = new Intent(getApplicationContext(), seoul01_01.class);
+        startActivity(intent);
+    }
+}

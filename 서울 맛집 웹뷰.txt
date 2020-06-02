@@ -1,0 +1,75 @@
+package com.example.cho.railro;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.EditText;
+import android.content.res.Configuration;
+
+public class seoul01_01 extends Activity {  //서울 맛집 화면을 웹뷰로 보여주기
+    private EditText url_String;
+    private WebView webView;
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {   //웹뷰 창 띄우기
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.seoul01_01);
+
+        webView = (WebView) findViewById(R.id.webview);
+        url_String = (EditText) findViewById( R.id.url);
+
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
+        webView.setWebViewClient(new WebViewClient() {  //저장된 url 불러오기
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+
+            @Override
+            public void onPageStarted (WebView view, String url, Bitmap favicon){
+                String urlString = webView.getUrl().toString();
+                url_String.setText(urlString);
+            }
+        });
+        webView.loadUrl("http://cafeblog.search.naver.com/search.naver?where=post&sm=tab_jum&ie=utf8&query=%EC%84%9C%EC%9A%B8+%EB%A7%9B%EC%A7%91");
+
+
+
+        url_String.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) { //뒤로가기 버튼 클릭시 웹뷰에서 뒤로가기
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    String urlString = url_String.getText().toString();
+
+                    if (urlString.startsWith("http") != true)
+                        urlString = "http://" + urlString;
+
+                    webView.loadUrl(urlString);
+                    return true;
+                }
+
+                return false;
+            }
+        });
+    }
+    public void scbutton(View v) {  //스케쥴러 화면으로 넘어가기
+        Intent intent = new Intent(getApplicationContext(), Schedule.class);
+        startActivity(intent);
+    }
+
+}
+
